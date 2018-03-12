@@ -11,7 +11,8 @@ namespace Introducao
         static void Main(string[] args)
         {
             //LinqSimples();
-            LinqComplexo();
+            //LinqComplexo();
+            LinqOrdenado();
         }
 
         private static void LinqSimples()
@@ -44,6 +45,21 @@ namespace Introducao
             Console.ReadKey();
         }
 
-        
+        private static void LinqOrdenado()
+        {
+            int[] numeros = { 8, 4, 6, 9, 7, 1, 2, 3, 10 };
+
+            var resultado = from num in numeros
+                            orderby num
+                            where num > 4
+                            select num;
+
+            foreach (var item in resultado)
+            {
+              Console.WriteLine(item);   
+            }
+
+            Console.ReadKey();
+        }        
     }
 }
