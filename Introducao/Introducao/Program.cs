@@ -12,7 +12,8 @@ namespace Introducao
         {
             //LinqSimples();
             //LinqComplexo();
-            LinqOrdenado();
+            //LinqOrdenadacaoSimples();
+            LinqOrdenadacaoComplexa();
         }
 
         private static void LinqSimples()
@@ -45,7 +46,7 @@ namespace Introducao
             Console.ReadKey();
         }
 
-        private static void LinqOrdenado()
+        private static void LinqOrdenadacaoSimples()
         {
             int[] numeros = { 8, 4, 6, 9, 7, 1, 2, 3, 10 };
 
@@ -60,6 +61,22 @@ namespace Introducao
             }
 
             Console.ReadKey();
-        }        
+        }
+
+        private static void LinqOrdenadacaoComplexa()
+        {
+            int[] numeros = { 8, 4, 6, 9, 7, 1, 2, 3, 10 };
+
+            var resultado = numeros
+                .Where(x => x > 4)
+                .OrderBy(x => x);
+
+            foreach (var item in resultado)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.ReadKey();
+        }
     }
 }
