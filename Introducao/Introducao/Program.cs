@@ -13,7 +13,8 @@ namespace Introducao
             //LinqSimples();
             //LinqComplexo();
             //LinqOrdenadacaoSimples();
-            LinqOrdenadacaoComplexa();
+            //LinqOrdenadacaoComplexa();
+            LinqPorString();
         }
 
         private static void LinqSimples()
@@ -74,6 +75,20 @@ namespace Introducao
             foreach (var item in resultado)
             {
                 Console.WriteLine(item);
+            }
+
+            Console.ReadKey();
+        }
+
+        private static void LinqPorString()
+        {
+            string[] cores = { "Preto", "Amarelo", "Azul", "Branco", "Rosa", "Marrom", };
+
+            var resultado = cores.Where(x => x.Contains("e"));
+
+            foreach (var cor in resultado)
+            {
+                Console.WriteLine(cor);
             }
 
             Console.ReadKey();
