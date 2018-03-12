@@ -82,9 +82,9 @@ namespace Introducao
 
         private static void LinqPorString()
         {
-            string[] cores = { "Preto", "Amarelo", "Azul", "Branco", "Rosa", "Marrom", };
+            string[] cores = { "Preto", "Amarelo", "Azul", "Branco", "Rosa", "Marrom", "Verde", "Vermelho" };
 
-            var resultado = cores.Where(x => x.Contains("e"));
+            var resultado = cores.Where(x => x.Contains("e") || x.Contains("z"));
 
             foreach (var cor in resultado)
             {
