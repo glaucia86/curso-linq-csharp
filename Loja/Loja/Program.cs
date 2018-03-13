@@ -1,6 +1,7 @@
 ﻿using Loja.Domain.Entities;
 using System;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace Loja
 {
@@ -9,7 +10,8 @@ namespace Loja
         static void Main(string[] args)
         {
             //LinqComplexo();
-            LinqSimples();
+            //LinqSimples();
+            LinqContains();
         }
 
         private static void LinqComplexo()
@@ -38,6 +40,24 @@ namespace Loja
                 {
                     Console.WriteLine(item.Nome);
                     Console.WriteLine(item.Valor);
+                });
+
+            Console.ReadKey();
+        }
+
+        private static void LinqContains()
+        {
+            var produtos = new Produto()
+                .ListarProdutos();
+
+                produtos = produtos
+                .Where(x => x.Nome.Contains("a") || x.Nome.Contains("M"))
+                .ToList();
+                
+                produtos.ForEach(item =>
+                {
+                    Console.WriteLine(JsonConvert.SerializeObject(item));
+                    Console.WriteLine(" ");
                 });
 
             Console.ReadKey();
